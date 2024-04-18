@@ -9,7 +9,7 @@ import 'package:$projectName/features/swaggerUIModels/$label/${label}_entity.dar
 
 part '${label}_model.g.dart';
 
-@JsonSerializable(fieldRename: FieldRename.snake)
+@JsonSerializable(fieldRename: FieldRename.snake) 
 class ${name}Model extends ${name}Entity {
   const ${name}Model({
     ${data.superFields}

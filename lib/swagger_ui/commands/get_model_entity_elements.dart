@@ -25,10 +25,10 @@ ModelEntityElements getModelFields(Map<String, dynamic> src) {
       fieldType = strToDataType(type);
     }
     final defaultValue = strToDefaultValue(str: fieldType, isId: fieldName == 'id');
-    fields += 'final $fieldType $fieldName; ';
-    constructors += 'this.$fieldName = $defaultValue, ';
-    superFields += 'super.$fieldName, ';
-    props += '$fieldName, ';
+    fields += 'final $fieldType $fieldName;\n';
+    constructors += 'this.$fieldName = $defaultValue,\n';
+    superFields += 'super.$fieldName,\n';
+    props += '$fieldName,\n';
 
     return MapEntry(key, value);
   });

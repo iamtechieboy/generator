@@ -20,13 +20,11 @@ class ${name}Entity extends Equatable {
       ];
 }
 
-class ${name}Converter
-    implements JsonConverter<${name}Entity, Map<String, dynamic>> {
+class ${name}Converter implements JsonConverter<${name}Entity, Map<String, dynamic>> {
   const ${name}Converter();
 
   @override
-  ${name}Entity fromJson(Map<String, dynamic> json) =>
-      ${name}Model.fromJson(json);
+  ${name}Entity fromJson(Map<String, dynamic> json) => ${name}Model.fromJson(json);
 
   @override
   Map<String, dynamic> toJson(${name}Entity object) => {};
