@@ -10,6 +10,7 @@ import 'package:generator/feature/domain/usecase.dart';
 import 'package:generator/feature/presentation/bloc/create_bloc.dart';
 import 'package:generator/feature/presentation/page.dart';
 import 'package:generator/feature/presentation/widget.dart';
+import 'package:generator/main/route_modfier.dart';
 import 'package:generator/main/service_locator_modifier.dart';
 
 class FeatureGenerator {
@@ -61,6 +62,15 @@ class FeatureGenerator {
 
     /// TODO: Modidy service loactor
     await ServiceLocatorModifier.modify(
-        projectName: projectName, features: featuresNameList, isAdditional: isAdditional);
+      projectName: projectName,
+      features: featuresNameList,
+      isAdditional: isAdditional,
+    );
+
+    await RouteModifier.modify(
+      projectName: projectName,
+      features: featuresNameList,
+      isAdditional: isAdditional,
+    );
   }
 }

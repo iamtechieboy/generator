@@ -9,6 +9,8 @@ class AppRoutingClassGenerator {
     final appRoutingDirectory = File('$projectName/lib/core/routing/app_routing.dart');
 
     appRoutingDirectory.writeAsStringSync("""
+// DO NOT DELETE THIS COMMENTED CODE
+//::IMPORTS::    
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:$projectName/features/navigation/presentation/navigation_screen.dart';
@@ -16,23 +18,25 @@ import 'package:$projectName/features/navigation/presentation/navigation_screen.
 
 class AppRouter {
 
-  static const String home = "/home";
-  static const String settings = "/settings";
+  // DO NOT DELETE THIS COMMENTED CODE
+  //::NAMES::
+  static const String examplePageOne = "/examplePageOne";
+  static const String examplePageTwo = "/examplePageTwo";
 
   static final GoRouter router = GoRouter(
-    initialLocation: home,
+    initialLocation: examplePageOne,
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) => NavigationScreen(
           statefulNavigationShell: navigationShell,
         ),
         branches: [
-          /// Main section
+          /// Navigation section
           StatefulShellBranch(
             routes: <RouteBase>[
               GoRoute(
-                name: home,
-                path: home,
+                name: examplePageOne,
+                path: examplePageOne,
                 builder: (context, state) => const Scaffold(
                   body: Text('Home'),
                 ),
@@ -40,15 +44,14 @@ class AppRouter {
               ),
             ],
           ),
-
           /// Setting section
           StatefulShellBranch(
             routes: <RouteBase>[
               GoRoute(
-                name: settings,
-                path: settings,
+                name: examplePageTwo,
+                path: examplePageTwo,
                 builder: (context, state) => const Scaffold(
-                  body: Text('Setting'),
+                  body: Text('examplePageTwo'),
                 ),
                 routes: const <RouteBase>[],
               ),
@@ -57,14 +60,19 @@ class AppRouter {
         ],
       ),
       // GoRoute(
-      //   name: home,
-      //   path: home,
-      //   builder: (context, state) => HomeScreen(),
+      //   name: example,
+      //   path: example,
+      //   builder: (context, state) => ExampleScreen(),
       // ),
       // Define more routes as needed
+      
+      // DO NOT DELETE THIS COMMENTED CODE
+      //::ROUTES::
+     
     ],
   );
 }
+
       """);
     print("Done ✅");
   }

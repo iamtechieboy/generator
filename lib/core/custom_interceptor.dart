@@ -38,6 +38,12 @@ class CustomInterceptor implements Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    if (SharedPreferenceManager.getString(AppConstants.token, defValue: '').isNotEmpty) {
+      options.headers['Authorization'] = SharedPreferenceManager.getString(AppConstants.token);
+    } else {
+      options.headers.remove('Authorization');
+    }
+    options.headers['Accept-Language'] = SharedPreferenceManager.getString(AppConstants.language, defValue: 'uz');
     handler.next(options);
   }
 

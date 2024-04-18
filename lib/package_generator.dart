@@ -85,7 +85,6 @@ class PackageGenerator {
       await ReadMeModifier.modify(projectName: projectName!);
       print('🎉 Readme modified successfully');
       await GenerateMEWithSwaggerUI.entryPoint(projectName!);
-      print('🎉 Swagger UI generated successfully');
       await RunCommands.run(projectName: projectName!);
       print('🎉 Commands run successfully');
     }
