@@ -11,9 +11,9 @@ Here some other essential commands to help you:
 
 - Generate CLA project =>
   \$ dart compile exe bin/main.dart -o bin/generator 
-  \n after generating the executable file, make sure to add the path to the environment variable
-  \n on macOS register path of generator file in shell profile e.g. ~/.zshrc or ~/.bash_profile
-  \n on windows register path of generator file in environment variables check it out => https://phoenixnap.com/kb/windows-set-environment-variable
+   - after generating the executable file, make sure to add the path to the environment variable
+   - n on macOS register path of generator file in shell profile e.g. ~/.zshrc or ~/.bash_profile
+   - on windows register path of generator file in environment variables check it out => https://phoenixnap.com/kb/windows-set-environment-variable
 
 - Generate new project =>
   \$ generator project
