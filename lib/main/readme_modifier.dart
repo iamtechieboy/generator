@@ -30,16 +30,16 @@ Project is ready to modify and add new features.
 Here some other essential commands to help you:
 
 -- Generate CLA project =>
-  \$ dart compile exe bin/main.dart -o bin/generator 
+  \$ dart compile exe bin/main.dart -o bin/generate
      after generating the executable file, make sure to add the path to the environment variable
      on macOS register path of generator file in shell profile e.g. ~/.zshrc or ~/.bash_profile
      on windows register path of generator file in environment variables check it out => https://phoenixnap.com/kb/windows-set-environment-variable
 
 -- Generate new project =>
-  \$ generator project
+  \$ generate project
 
 -- Generate new feature =>
-  \$ generator feature
+  \$ generate feature
 
 - Regenerate LocaleKeys =>
   \$ dart run easy_localization:generate -S "assets/translations" -O "lib/generated" & dart run easy_localization:generate -S "assets/translations" -O "lib/generated" -o "locale_keys.g.dart" -f keys
