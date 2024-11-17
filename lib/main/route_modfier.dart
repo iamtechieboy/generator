@@ -11,6 +11,9 @@ class RouteModifier {
     print("🛠️ Modifying route structure...");
 
     var path = '$projectName/lib/core/routing/app_routing.dart';
+    if (isAdditional) {
+      path = 'lib/core/routing/app_routing.dart';
+    }
 
     final serviceLocatorFile = File(path);
     final serviceLocatorContent = serviceLocatorFile.readAsStringSync();

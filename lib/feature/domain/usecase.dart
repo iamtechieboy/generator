@@ -18,16 +18,15 @@ import 'package:$projectName/core/error/failure_handler.dart';
 import 'package:$projectName/core/util/either.dart';
 import 'package:$projectName/features/$featureName/domain/repositories/${featureName}_repository.dart'; 
 import 'package:$projectName/features/$featureName/domain/entities/${featureName}_entity.dart';
-import 'package:$projectName/features/common/data/models/generic_pagination.dart';
 
-class ${name}UseCase implements UseCase<GenericPagination<${name}Entity>, String?> {
+class ${name}UseCase implements UseCase<${name}Entity, String?> {
   final ${name}Repository ${variableName}Repository;
   ${name}UseCase({
     required this.${variableName}Repository,
   });
 
   @override
-  Future<Either<Failure, GenericPagination<${name}Entity>>> call(String? params) async {
+  Future<Either<Failure, ${name}Entity>> call(String? params) async {
     return await ${variableName}Repository.get$name(next:params);
   }
 }

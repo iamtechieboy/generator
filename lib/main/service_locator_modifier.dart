@@ -86,7 +86,7 @@ class ServiceLocatorModifier {
       // register datasource and repositories of each feature
       content +=
           "\nserviceLocator.registerLazySingleton(() => ${featureName}DataSourceImpl(serviceLocator<DioSettings>().dio()));"
-          "\nserviceLocator.registerLazySingleton(() => ${featureName}RepositoryImpl(${variableName}DataSource: serviceLocator<${featureName}DataSource>()));\n";
+          "\nserviceLocator.registerLazySingleton(() => ${featureName}RepositoryImpl(${variableName}DataSource: serviceLocator<${featureName}DataSourceImpl>()));\n";
     }
 
     int indexOfSignature = fileContent.indexOf(signature);

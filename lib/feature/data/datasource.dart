@@ -8,15 +8,13 @@ class DatasourceGenerator {
     var name = featureName.capitalize();
     featureName = featureName.convertToSnakeCase();
 
-    var content = ''' 
+    var content = '''
 import 'package:dio/dio.dart';
 import 'package:$projectName/core/error/error_handler.dart'; 
 import 'package:$projectName/features/$featureName/data/models/${featureName}_model.dart';
-import 'package:$projectName/features/common/data/models/generic_pagination.dart';
 
-abstract class ${name}DataSource { 
-    
-  Future<GenericPagination<${name}Model>> get$name({required String? next});
+abstract class ${name}DataSource {     
+  Future<${name}Model> get$name({required String? next});
 }
 
 class ${name}DataSourceImpl implements ${name}DataSource {
@@ -25,14 +23,13 @@ class ${name}DataSourceImpl implements ${name}DataSource {
   ${name}DataSourceImpl(this._dio);
 
   @override
-  Future<GenericPagination<${name}Model>> get$name({required String? next}) async {
+  Future<${name}Model> get$name({required String? next}) async {
     try {
       final response = await _dio.get(
         'replece/this/with/your/end_point',
       );
       if (response.statusCode != null && response.statusCode! >= 200 && response.statusCode! < 300) {
-        return GenericPagination.fromJson(
-            response.data, (p0) => ${name}Model.fromJson(p0 as Map<String, dynamic>));
+        return ${name}Model.fromJson(response.data);
       } else {
         var message = response.data["message"];
         message ??= response.data["error_message"];

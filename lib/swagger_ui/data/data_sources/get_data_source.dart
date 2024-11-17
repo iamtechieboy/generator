@@ -11,15 +11,9 @@ import 'package:$projectName/core/exceptions/exceptions.dart';
 import 'package:$projectName/features/pagination/data/models/generic_pagination.dart';
 import 'package:$projectName/features/$label/data/models/${label}_model.dart';
 
-
-
 abstract class ${name}DataSource { 
-    
-  Future<GenericPagination<${name}Model>> get${name}s({required ${name}Param param});
+  Future<${name}Model> get${name}s({required ${name}Param param});
 }
-
-
-
 
 
 class ${name}DataSourceImpl implements ${name}DataSource {
@@ -35,7 +29,7 @@ class ${name}DataSourceImpl implements ${name}DataSource {
         'replece/this/with/your/end_point',
       );
       if (response.statusCode != null && response.statusCode! >= 200 && response.statusCode! < 300) {
-        return GenericPagination(next: null, previous:null, results:List.generate(10, (index) =>${name}Model(name: 'name \$index',id: index)), count: 10);
+        return ${name}Model.fromJson(response.data);
       } else {
         throw ServerException(
           statusCode: response.statusCode ?? 400,

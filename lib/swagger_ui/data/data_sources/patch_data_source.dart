@@ -8,19 +8,11 @@ Future<void> patchDataSource({required String label, required String projectName
 
 import 'package:dio/dio.dart';
 import 'package:$projectName/core/exceptions/exceptions.dart'; 
-import 'package:$projectName/features/pagination/data/models/generic_pagination.dart';
 import 'package:$projectName/features/$label/data/models/${label}_model.dart';
 
-
-
 abstract class ${name}DataSource { 
-    
-  Future<GenericPagination<${name}Model>> get${name}s({required String? next});
+  Future<${name}Model> get${name}s({required String? next});
 }
-
-
-
-
 
 class ${name}DataSourceImpl implements ${name}DataSource {
   final Dio _dio;
@@ -29,13 +21,13 @@ class ${name}DataSourceImpl implements ${name}DataSource {
 
 
   @override
-  Future<GenericPagination<${name}Model>> get${name}s({required String? next}) async {
+  Future<${name}Model>> get${name}s({required String? next}) async {
     try {
       final response = await _dio.patch(
         'replece/this/with/your/end_point',
       );
       if (response.statusCode != null && response.statusCode! >= 200 && response.statusCode! < 300) {
-        return GenericPagination(next: null, previous:null, results:List.generate(10, (index) =>${name}Model(name: 'name \$index',id: index)), count: 10);
+        return ${name}Model.fromJson(response.data);
       } else {
         throw ServerException(
           statusCode: response.statusCode ?? 400,

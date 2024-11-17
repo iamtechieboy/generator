@@ -19,7 +19,6 @@ import 'package:$projectName/core/util/either.dart';
 import 'package:$projectName/features/$featureName/data/data_sources/${featureName}_datasource.dart';
 import 'package:$projectName/features/$featureName/domain/entities/${featureName}_entity.dart'; 
 import 'package:$projectName/features/$featureName/domain/repositories/${featureName}_repository.dart';
-import 'package:$projectName/features/common/data/models/generic_pagination.dart';
 
 
 class ${name}RepositoryImpl implements ${name}Repository {
@@ -28,7 +27,7 @@ class ${name}RepositoryImpl implements ${name}Repository {
     ${name}RepositoryImpl({required this.${variableName}DataSource});
   
     @override
-    Future<Either<Failure, GenericPagination<${name}Entity>>> get${name}({
+    Future<Either<Failure, ${name}Entity>> get${name}({
     String? next,
   }) async {
     try {

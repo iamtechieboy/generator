@@ -34,9 +34,7 @@ class ${name}Bloc extends Bloc<${name}Event, ${name}State> {
       if (result.isRight) {
         emit(state.copyWith(
           status: FormzSubmissionStatus.success,
-          $variableName: result.right.results,
-          next: result.right.next,
-          hasFetchMore: result.right.next != null,
+          $variableName: result.right,
         ));
       } else {
         emit(state.copyWith(status: FormzSubmissionStatus.failure));

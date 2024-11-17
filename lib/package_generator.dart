@@ -9,7 +9,6 @@ import 'package:generator/feature/navigation/navigation_generator.dart';
 import 'package:generator/main/main_modifier.dart';
 import 'package:generator/main/readme_modifier.dart';
 import 'package:generator/main/run_commands.dart';
-import 'package:generator/swagger_ui/swagger_main.dart';
 import 'assets/assets_generator.dart';
 import 'core/core.dart';
 
@@ -84,7 +83,7 @@ class PackageGenerator {
       print('🎉 Feature folder created successfully');
       await ReadMeModifier.modify(projectName: projectName!);
       print('🎉 Readme modified successfully');
-      await GenerateMEWithSwaggerUI.entryPoint(projectName!);
+      // await GenerateMEWithSwaggerUI.entryPoint(projectName!);
       await RunCommands.run(projectName: projectName!);
       print('🎉 Commands run successfully');
     }

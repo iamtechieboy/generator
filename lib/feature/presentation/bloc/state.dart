@@ -17,29 +17,21 @@ part of '${featureName}_bloc.dart';
 
 class ${name}State extends Equatable {
   final FormzSubmissionStatus status;
-  final List<${name}Entity> $variableName;
-  final String next;
-  final bool hasFetchMore;
+  final ${name}Entity $variableName;
   const ${name}State({
     this.status = FormzSubmissionStatus.initial,
-    this.$variableName = const [],
-    this.next = '',
-    this.hasFetchMore = false,
+    this.$variableName = const ${name}Entity(),
     
   });
   @override
-  List<Object?> get props => [status, $variableName,next,hasFetchMore,];
+  List<Object?> get props => [status, $variableName];
 
   ${name}State copyWith({
-  String? next,
-  bool? hasFetchMore,
     FormzSubmissionStatus? status,
-    List<${name}Entity>? $variableName,
+    ${name}Entity? $variableName,
   }) {
     return ${name}State(
       status: status ?? this.status,
-      hasFetchMore: hasFetchMore ?? this.hasFetchMore,
-      next: next ?? this.next,
       $variableName: $variableName ?? this.$variableName,
     );
   }

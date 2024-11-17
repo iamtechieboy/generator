@@ -6,7 +6,7 @@ class CommonGenerator {
   static Future<void> generate({required String projectName}) async {
     print("Generating common folder...");
     await CommonWidgetsGenerator.generate(projectName: projectName);
-    await GenericPaginationModelGenerator.generate(projectName: projectName);
+    // await GenericPaginationModelGenerator.generate(projectName: projectName);
     await ListPaginationGenerator.generate(projectName: projectName);
     print("Done ✅");
   }

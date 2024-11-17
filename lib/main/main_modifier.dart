@@ -54,23 +54,18 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        // BlocProvider(create: (context) => ExampleBloc())),
-      ],
-      child: MediaQuery(
-            data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1.0)),
-            child: MaterialApp.router(
-              key: _navigatorKey,
-              debugShowCheckedModeBanner: false,
-              title: '$projectName',
-              supportedLocales: context.supportedLocales,
-              localizationsDelegates: context.localizationDelegates,
-              locale: context.locale,
-              theme: AppTheme.theme,
-              routerConfig: AppRouter.router,
-            ),
-          ),
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1.0)),
+      child: MaterialApp.router(
+        key: _navigatorKey,
+        debugShowCheckedModeBanner: false,
+        title: '$projectName',
+        supportedLocales: context.supportedLocales,
+        localizationsDelegates: context.localizationDelegates,
+        locale: context.locale,
+        theme: AppTheme.theme,
+        routerConfig: AppRouter.router,
+      ),
     );
   }
 }

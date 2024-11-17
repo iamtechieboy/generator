@@ -15,10 +15,9 @@ class RepositoryGenerator {
 import 'package:$projectName/core/error/failure_handler.dart';
 import 'package:$projectName/core/util/either.dart';
 import 'package:$projectName/features/$featureName/domain/entities/${featureName}_entity.dart';
-import 'package:$projectName/features/common/data/models/generic_pagination.dart';
 
 abstract class ${name}Repository {
-  Future<Either<Failure, GenericPagination<${name}Entity>>> get$name({required String? next});
+  Future<Either<Failure, ${name}Entity>> get$name({required String? next});
 }
     """;
 
