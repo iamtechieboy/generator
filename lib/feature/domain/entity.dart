@@ -11,11 +11,8 @@ class EntityDirectoryGenerator {
     var name = featureName.capitalize();
     featureName = featureName.convertToSnakeCase();
 
-    var content = """ 
+    var content = """
 import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:$projectName/features/$featureName/data/models/${featureName}_model.dart';
-
 
 class ${name}Entity extends Equatable {
   final int id;
@@ -31,22 +28,6 @@ class ${name}Entity extends Equatable {
         id,name,
       ];
 }
-
-class ${name}Converter
-    implements JsonConverter<${name}Entity, Map<String, dynamic>> {
-  const ${name}Converter();
-
-  @override
-  ${name}Entity fromJson(Map<String, dynamic> json) =>
-      ${name}Model.fromJson(json);
-
-  @override
-  Map<String, dynamic> toJson(${name}Entity object) => {
-    'id': object.id,
-    'name': object.name,
-    };
-}
-
     """;
 
     var path = '$projectName/lib/features/$featureName/domain/entities/${featureName}_entity.dart';

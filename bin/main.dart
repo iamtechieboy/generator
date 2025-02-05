@@ -18,7 +18,7 @@ Future<void> main(List<String> arguments) async {
   final parser = ArgParser()
     ..addCommand('project')
     ..addCommand('feature');
-    // ..addOption('project_name', abbr: 'n', help: 'The name of the project', defaultsTo: 'my_flutter_project');
+  // ..addOption('project_name', abbr: 'n', help: 'The name of the project', defaultsTo: 'my_flutter_project');
 
   final argResults = parser.parse(arguments);
 

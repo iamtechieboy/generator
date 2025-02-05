@@ -15,7 +15,9 @@ class PageGenerator {
     var content = """
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:$projectName/core/service_locator.dart';
 import 'package:$projectName/features/$featureName/presentation/blocs/$featureName/${featureName}_bloc.dart';
+import 'package:$projectName/features/$featureName/domain/use_cases/${variableName}_usecase.dart';
 
 class ${name}Screen extends StatefulWidget {
   const ${name}Screen({super.key});
@@ -30,7 +32,7 @@ class _${name}ScreenState extends State<${name}Screen> {
   @override
   void initState() {
     super.initState();
-    ${variableName}Bloc = ${name}Bloc();
+    ${variableName}Bloc = ${name}Bloc(${variableName}UseCase: serviceLocator.get<${name}UseCase>());
   }
 
   @override

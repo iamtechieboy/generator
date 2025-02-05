@@ -24,10 +24,9 @@ part '${featureName}_event.dart';
 part '${featureName}_state.dart';
 
 class ${name}Bloc extends Bloc<${name}Event, ${name}State> {
-  final ${name}UseCase ${variableName}UseCase = 
-        ${name}UseCase(${variableName}Repository: serviceLocator<${name}RepositoryImpl>());
+  final ${name}UseCase ${variableName}UseCase;
         
-  ${name}Bloc() : super(const ${name}State()) {
+  ${name}Bloc({required this.${variableName}UseCase}) : super(const ${name}State()) {
     on<${name}GetEvent>((event, emit) async {
       emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
       final result = await ${variableName}UseCase('');

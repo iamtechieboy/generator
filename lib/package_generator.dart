@@ -58,35 +58,30 @@ class PackageGenerator {
       includeMacOS: includeMacOs,
     );
 
-    print('👊 Your Flutter project "$projectName" is ready!\n'
-        '🛠️ Do you want to include the core structure? (y/n)');
+    print('👊 Your Flutter project "$projectName" is ready!');
 
-    /// Ask the user if they want to include the core structure
-    bool includeCoreStructure = stdin.readLineSync()?.trim().toLowerCase() == 'y';
-    if (includeCoreStructure) {
-      print('🕒 Wait for seconds until the core structure is created...');
-      await Core.generateCoreStructure(projectName!);
-      print('🎉 Core structure created successfully');
-      await Dependencies.addDependencies(projectName!);
-      print('🎉 Dependencies added successfully');
-      await Assets.generateAssetsFolder(projectName!);
-      print('🎉 Assets folder created successfully');
-      await PubspecYaml.modifyPubspecForAssets(projectName);
-      print('🎉 pubspec.yaml modified successfully');
-      await MainModifier.modifyMain(projectName);
-      print('🎉 Main modified successfully');
-      await CommonGenerator.generate(projectName: projectName!);
-      print('🎉 Common folder created successfully');
-      await NavigationGenerator.generate(projectName: projectName!);
-      print('🎉 Navigation folder created successfully');
-      await FeatureGenerator.generate(projectName!);
-      print('🎉 Feature folder created successfully');
-      await ReadMeModifier.modify(projectName: projectName!);
-      print('🎉 Readme modified successfully');
-      // await GenerateMEWithSwaggerUI.entryPoint(projectName!);
-      await RunCommands.run(projectName: projectName!);
-      print('🎉 Commands run successfully');
-    }
+    print('🕒 Wait for seconds until the core structure is created...');
+    await Core.generateCoreStructure(projectName!);
+    print('🎉 Core structure created successfully');
+    await Dependencies.addDependencies(projectName!);
+    print('🎉 Dependencies added successfully');
+    await Assets.generateAssetsFolder(projectName!);
+    print('🎉 Assets folder created successfully');
+    await PubspecYaml.modifyPubspecForAssets(projectName);
+    print('🎉 pubspec.yaml modified successfully');
+    await MainModifier.modifyMain(projectName);
+    print('🎉 Main modified successfully');
+    await CommonGenerator.generate(projectName: projectName!);
+    print('🎉 Common folder created successfully');
+    await NavigationGenerator.generate(projectName: projectName!);
+    print('🎉 Navigation folder created successfully');
+    await FeatureGenerator.generate(projectName!);
+    print('🎉 Feature folder created successfully');
+    await ReadMeModifier.modify(projectName: projectName!);
+    print('🎉 Readme modified successfully');
+    // await GenerateMEWithSwaggerUI.entryPoint(projectName!);
+    await RunCommands.run(projectName: projectName!);
+    print('🎉 Commands run successfully');
   }
 
   Future<void> generateFlutterProject(

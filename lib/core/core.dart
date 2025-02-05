@@ -35,6 +35,12 @@ part 'extension.dart';
 
 part 'enums.dart';
 
+part 'api_endpoints.dart';
+
+part 'datasource_util.dart';
+
+part 'repository_util.dart';
+
 /// Generate the core structure of the project
 ///  'core/service_locator.dart' - for registering all dependencies
 ///  'core/config/app_constants.dart' - for app key constants,
@@ -73,5 +79,8 @@ class Core {
     await FormatterClassGenerator.generate(projectName);
     await ExtensionClassGenerator.generate(projectName);
     await EnumClassGenerator.generate(projectName);
+    await EndPointsMixin.generate(projectName);
+    await DataSourceUtilGenerator.generate(projectName);
+    await RepositoryUtilGenerator.generate(projectName);
   }
 }

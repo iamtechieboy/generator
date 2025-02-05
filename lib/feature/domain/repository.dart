@@ -17,7 +17,7 @@ import 'package:$projectName/core/util/either.dart';
 import 'package:$projectName/features/$featureName/domain/entities/${featureName}_entity.dart';
 
 abstract class ${name}Repository {
-  Future<Either<Failure, ${name}Entity>> get$name({required String? next});
+  Future<Either<Failure, ${name}Entity>> get$name(String params);
 }
     """;
 

@@ -12,41 +12,31 @@ class DatasourceGenerator {
 import 'package:dio/dio.dart';
 import 'package:$projectName/core/error/error_handler.dart'; 
 import 'package:$projectName/features/$featureName/data/models/${featureName}_model.dart';
+import 'package:$projectName/core/network/api_endpoints.dart';
+import 'package:$projectName/core/util/datasource/datasource_utils.dart';
+
 
 abstract class ${name}DataSource {     
-  Future<${name}Model> get$name({required String? next});
+  Future<${name}Model> get$name(String params);
 }
 
-class ${name}DataSourceImpl implements ${name}DataSource {
+class ${name}DataSourceImpl with ApiEndPoints, DataSourceUtil implements ${name}DataSource {
   final Dio _dio;
 
   ${name}DataSourceImpl(this._dio);
 
   @override
-  Future<${name}Model> get$name({required String? next}) async {
-    try {
-      final response = await _dio.get(
-        'replece/this/with/your/end_point',
+  Future<${name}Model> get$name(params) async {
+     return await checkResponse<${name}Model>(() async {
+      final response = await _dio.post(
+        placeEndPointsHere,
       );
       if (response.statusCode != null && response.statusCode! >= 200 && response.statusCode! < 300) {
         return ${name}Model.fromJson(response.data);
       } else {
-        var message = response.data["message"];
-        message ??= response.data["error_message"];
-        throw ServerException(
-          statusCode: response.statusCode ?? 500,
-          errorMessage: message,
-        );
+        throw extractMessage(response);
       }
-    } on ServerException {
-      rethrow;
-    } on DioException catch (e) {
-      throw DioException(requestOptions: e.requestOptions);
-    } on Exception catch (e) {
-      throw ParsingException(errorMessage: e.toString());
-    } catch (e) {
-      throw ParsingException(errorMessage: e.toString());
-    }
+    });
   }
 }
     ''';

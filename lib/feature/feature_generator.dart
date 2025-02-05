@@ -33,8 +33,7 @@ class FeatureGenerator {
       print("⏳ Start generating features...");
     }
     for (var featureName in featuresNameList) {
-      if (featureName.isEmpty) {
-        print('❌ Feature name cannot be empty');
+      if (featureName.trim().isEmpty) {
         continue;
       }
       featureName = featureName.replaceAll(' ', '');

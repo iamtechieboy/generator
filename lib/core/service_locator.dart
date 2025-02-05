@@ -22,21 +22,18 @@ final GetIt serviceLocator = GetIt.instance;
 
 /// Service locator setup
 Future<void> setupServiceLocator() async {
-
+ 
   await SharedPreferenceManager.getInstance();
   serviceLocator.registerLazySingleton(() => DioSettings());
   
   // DO DELETE THIS COMMENTED CODE
   // ::REGISTERED_FEATURES::
 
-  // Singleton: Other services, controllers, and repositories
-  // serviceLocator.registerLazySingleton<YourService>(() => YourServiceImpl());
-  
-  // Factory: Use if a new instance should be created on each call
-  // serviceLocator.registerFactory<YourController>(() => YourControllerImplementation());
-
-  // Other dependencies can be registered in a similar manner
 }
+
+// DO DELETE THIS COMMENTED CODE
+// ::METHODS::
+
     """,
     );
 
