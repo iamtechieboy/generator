@@ -29,7 +29,7 @@ extension BuildContextExtensions on BuildContext {
 
   Brightness get brightness => theme.brightness;
 
-  AppBarTheme get appBarTheme => theme.appBarTheme;
+  AppBarThemeData get appBarTheme => theme.appBarTheme;
 
   Future<void> showPopUp(
     BuildContext context,

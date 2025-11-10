@@ -6,7 +6,7 @@ class EnumClassGenerator {
     print("🛠️ Generating enum class...");
 
     Directory('$projectName/lib/core/util/enums').createSync(recursive: true);
-    final enumsDirectory = File('$projectName/lib/core/util/enums/extensions.dart');
+    final enumsDirectory = File('$projectName/lib/core/util/enums/enums.dart');
 
     enumsDirectory.writeAsStringSync(
       """

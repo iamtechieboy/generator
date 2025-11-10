@@ -55,7 +55,7 @@ class RouteModifier {
 
     for (var featureName in features) {
       featureName = featureName.trim();
-      if(featureName.trim().isEmpty) continue;
+      if (featureName.trim().isEmpty) continue;
       featureName = featureName.convertToSnakeCase();
 
       // import page of each feature
@@ -88,12 +88,11 @@ class RouteModifier {
 
     for (var featureName in features) {
       featureName = featureName.trim();
-      if(featureName.trim().isEmpty) continue;
-      featureName = featureName.convertToSnakeCase();
+      if (featureName.trim().isEmpty) continue;
+      final variableName = featureName.convertToSnakeCase();
 
-      content +=
-      """\n
-static const String $featureName = '/$featureName';
+      content += """\n
+static const String $featureName = '/$variableName';
   """;
     }
 
@@ -122,7 +121,7 @@ static const String $featureName = '/$featureName';
 
     for (var featureName in features) {
       featureName = featureName.trim();
-      if(featureName.trim().isEmpty) continue;
+      if (featureName.trim().isEmpty) continue;
       var variableName = featureName;
       featureName = featureName.capitalize()!;
 

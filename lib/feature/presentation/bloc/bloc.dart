@@ -15,8 +15,6 @@ class BlocGenerator {
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart'; 
-import 'package:$projectName/core/service_locator.dart';
-import 'package:$projectName/features/$featureName/data/repositories/${featureName}_repository_impl.dart';
 import 'package:$projectName/features/$featureName/domain/entities/${featureName}_entity.dart';
 import 'package:$projectName/features/$featureName/domain/use_cases/${featureName}_usecase.dart';
 
