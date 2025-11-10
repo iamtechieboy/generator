@@ -1,18 +1,18 @@
 part of 'core.dart';
 
 /// Generate extension class
-class ExtensionClassGenerator { static
-Future<void> generate(projectName) async {
-  print("🛠️ Generating extension class...");
+class ExtensionClassGenerator {
+  static Future<void> generate(projectName) async {
+    print("🛠️ Generating extension class...");
 
-  Directory('$projectName/lib/core/util/extensions').createSync(recursive: true);
-  final extensionDirectory = File('$projectName/lib/core/util/extensions/extensions.dart');
+    Directory('$projectName/lib/core/util/extensions').createSync(recursive: true);
+    final extensionDirectory = File('$projectName/lib/core/util/extensions/extensions.dart');
 
-  extensionDirectory.writeAsStringSync(
-    """
+    extensionDirectory.writeAsStringSync(
+      """
 import 'package:flutter/material.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-import 'package:$projectName/core/util/enums/extensions.dart';
+import 'package:$projectName/core/util/enums/enums.dart';
 import 'package:$projectName/features/common/presentation/widgets/popup_container.dart';
 
 
@@ -66,6 +66,7 @@ extension CrossFade on CrossFadeState {
   bool get isShowSecond => this == CrossFadeState.showSecond;
 }
   """,
-  );
-  print("Done ✅");
-}}
+    );
+    print("Done ✅");
+  }
+}
